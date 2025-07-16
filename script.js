@@ -1,46 +1,35 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const ramos = document.querySelectorAll(".ramo");
+document.addEventListener("DOMContentLoaded", () => {
+  const subjects = document.querySelectorAll(".subject");
 
-  // Cargar ramos aprobados desde localStorage
-  const aprobadosGuardados = JSON.parse(localStorage.getItem("aprobados")) || new Set();
-  const aprobados = new Set(aprobadosGuardados);
+  function updateSubjectStates() {
+    subjects.forEach((subject) => {
+      const prereqIds = subject.dataset.prereq?.split(" ") || [];
+      const isUnlocked = prereqIds.every(id =>
+        document.getElementById(id)?.classList.contains("approved")
+      );
 
-  actualizarEstados();
-
-  ramos.forEach(ramo => {
-    // Restaurar aprobados guardados
-    if (aprobados.has(ramo.id)) {
-      ramo.classList.add("aprobado");
-    }
-
-    // Manejar clics
-    ramo.addEventListener("click", function () {
-      if (ramo.classList.contains("bloqueado")) return;
-
-      // Alternar aprobación
-      if (ramo.classList.contains("aprobado")) {
-        ramo.classList.remove("aprobado");
-        aprobados.delete(ramo.id);
+      if (prereqIds.length === 0 || isUnlocked) {
+        subject.classList.remove("locked");
+        subject.classList.add("unlocked");
       } else {
-        ramo.classList.add("aprobado");
-        aprobados.add(ramo.id);
+        subject.classList.remove("unlocked", "approved");
+        subject.classList.add("locked");
       }
+    });
+  }
 
-      // Guardar en localStorage
-      localStorage.setItem("aprobados", JSON.stringify([...aprobados]));
-
-      // Actualizar estados
-      actualizarEstados();
+  subjects.forEach((subject) => {
+    subject.addEventListener("click", () => {
+      if (!subject.classList.contains("locked")) {
+        subject.classList.toggle("approved");
+        updateSubjectStates();
+      }
     });
   });
 
-  function actualizarEstados() {
-    ramos.forEach(ramo => {
-      const requisitos = ramo.dataset.prereq;
-      if (!requisitos) {
-        ramo.classList.remove("bloqueado");
-        return;
-      }
+  updateSubjectStates(); // inicial
+});
+
 
       const listaRequisitos = requisitos.split(",").map(r => r.trim());
       const todosCumplidos = listaRequisitos.every(req => aprobados.has(req));
