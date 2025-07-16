@@ -1,28 +1,40 @@
 document.addEventListener("DOMContentLoaded", function () {
   const ramos = document.querySelectorAll(".ramo");
 
-  // Inicializa los estados de los ramos
+  // Cargar ramos aprobados desde localStorage
+  const aprobadosGuardados = JSON.parse(localStorage.getItem("aprobados")) || new Set();
+  const aprobados = new Set(aprobadosGuardados);
+
   actualizarEstados();
 
-  // Escucha clics en ramos desbloqueados
   ramos.forEach(ramo => {
+    // Restaurar aprobados guardados
+    if (aprobados.has(ramo.id)) {
+      ramo.classList.add("aprobado");
+    }
+
+    // Manejar clics
     ramo.addEventListener("click", function () {
       if (ramo.classList.contains("bloqueado")) return;
 
-      // Alternar aprobado/desaprobado
-      ramo.classList.toggle("aprobado");
+      // Alternar aprobación
+      if (ramo.classList.contains("aprobado")) {
+        ramo.classList.remove("aprobado");
+        aprobados.delete(ramo.id);
+      } else {
+        ramo.classList.add("aprobado");
+        aprobados.add(ramo.id);
+      }
 
-      // Actualizar otros ramos en base a los nuevos estados
+      // Guardar en localStorage
+      localStorage.setItem("aprobados", JSON.stringify([...aprobados]));
+
+      // Actualizar estados
       actualizarEstados();
     });
   });
 
   function actualizarEstados() {
-    const aprobados = new Set();
-    document.querySelectorAll(".ramo.aprobado").forEach(r => {
-      aprobados.add(r.id);
-    });
-
     ramos.forEach(ramo => {
       const requisitos = ramo.dataset.prereq;
       if (!requisitos) {
@@ -37,7 +49,9 @@ document.addEventListener("DOMContentLoaded", function () {
         ramo.classList.remove("bloqueado");
       } else {
         ramo.classList.add("bloqueado");
-        ramo.classList.remove("aprobado"); // desmarcar si se quedó sin requisitos
+        ramo.classList.remove("aprobado");
+        aprobados.delete(ramo.id);
+        localStorage.setItem("aprobados", JSON.stringify([...aprobados]));
       }
     });
   }
