@@ -1,61 +1,65 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f5faff;
+  background-color: #e6f0fa;
+  margin: 0;
   padding: 20px;
 }
 
 h1 {
-  color: #2a4e8a;
   text-align: center;
-  margin-bottom: 30px;
+  color: #004a7c;
 }
 
-.curriculum {
+.malla {
   display: flex;
-  flex-wrap: nowrap;
+  flex-direction: row;
   overflow-x: auto;
   gap: 20px;
+  padding: 20px 0;
 }
 
-.subject-container {
-  min-width: 220px;
-  background-color: #e8f1fa;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 0 5px #ccc;
-}
-
-.subject-container h2 {
-  text-align: center;
-  color: #003366;
-  margin-bottom: 15px;
-}
-
-.subject {
+.semestre {
+  min-width: 200px;
+  background-color: #f5faff;
+  border: 1px solid #b3cde0;
   padding: 10px;
-  margin-bottom: 8px;
-  border-radius: 6px;
-  text-align: center;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.semestre h2 {
+  font-size: 1.1em;
+  color: #003f66;
+  margin-bottom: 10px;
+}
+
+.ramo {
+  background-color: #cce7ff; /* celeste */
+  padding: 8px;
+  margin-bottom: 6px;
+  border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
-  font-weight: bold;
+  color: #003f66;
+  font-size: 0.9em;
 }
 
-/* ESTADOS */
-.unlocked {
-  background-color: #cbe8ff;
-  color: #003366;
+.ramo:hover {
+  background-color: #a3d4ff;
 }
 
-.locked {
-  background-color: #e0e0e0;
-  color: #888;
+/* Ramo bloqueado */
+.bloqueado {
+  background-color: #cccccc; /* gris */
+  color: #666;
   text-decoration: line-through;
   cursor: not-allowed;
 }
 
-.approved {
-  background-color: #004080;
-  color: #fff;
+/* Ramo aprobado */
+.aprobado {
+  background-color: #003f66 !important; /* azul oscuro */
+  color: white !important;
   text-decoration: line-through;
 }
+  
