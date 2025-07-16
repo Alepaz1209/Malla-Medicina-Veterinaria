@@ -1,130 +1,127 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Malla Medicina Veterinaria</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Malla Curricular - Medicina Veterinaria</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Malla Curricular Medicina Veterinaria</h1>
-  <div class="curriculum">
-    
-    <!-- SEMESTRE 1 -->
-    <div class="subject-container">
+  <h1>Malla Curricular - Medicina Veterinaria</h1>
+  <div class="malla">
+    <!-- Semestre 1 -->
+    <div class="semestre">
       <h2>Semestre 1</h2>
-      <div class="subject" id="matematica" title="Fundamentos matemáticos aplicados a ciencias veterinarias.">Matemática</div>
-      <div class="subject" id="intro" title="Panorama general de la profesión y áreas de trabajo veterinario.">Introducción a la Medicina Veterinaria</div>
-      <div class="subject" id="taller" title="Desarrollo de habilidades de lectura y redacción académica.">Taller de comprensión Oral y Escrita</div>
+      <div class="ramo" id="matematica">Matemática</div>
+      <div class="ramo" id="intro_med_vet">Introducción a la Medicina Veterinaria</div>
+      <div class="ramo" id="taller_lectura">Taller de Compresión Oral y Escrita</div>
     </div>
 
-    <!-- SEMESTRE 2 -->
-    <div class="subject-container">
+    <!-- Semestre 2 -->
+    <div class="semestre">
       <h2>Semestre 2</h2>
-      <div class="subject" id="bioestadistica" data-prereq="matematica" title="Aplicación de estadística a datos biológicos y veterinarios.">Bioestadística</div>
-      <div class="subject" id="histoembriologia" title="Estructura y desarrollo de tejidos animales.">Histoembriología</div>
-      <div class="subject" id="anatomia_canino" title="Estudio anatómico del perro como base veterinaria.">Anatomía del Canino</div>
-      <div class="subject" id="ingles1" title="Inglés básico aplicado a contextos veterinarios.">Inglés I</div>
+      <div class="ramo" id="bioestadistica" data-prereq="matematica">Bioestadística</div>
+      <div class="ramo" id="histoembriologia">Histoembriología</div>
+      <div class="ramo" id="anatomia_canino">Anatomía del Canino</div>
+      <div class="ramo" id="ingles1">Inglés I</div>
     </div>
 
-    <!-- SEMESTRE 3 -->
-    <div class="subject-container">
+    <!-- Semestre 3 -->
+    <div class="semestre">
       <h2>Semestre 3</h2>
-      <div class="subject" id="ingles2" data-prereq="ingles1" title="Continuación de Inglés I con enfoque técnico.">Inglés II</div>
-      <div class="subject" id="zoologia" data-prereq="histoembriologia" title="Diversidad y clasificación de animales.">Zoología</div>
-      <div class="subject" id="practica_basica" data-prereq="anatomia_canino intro" title="Manejo básico de animales y procedimientos iniciales.">Práctica Básica</div>
-      <div class="subject" id="anatomia_comparada" data-prereq="anatomia_canino" title="Comparación anatómica entre especies.">Anatomía Comparada</div>
-      <div class="subject" id="biologia_celular" title="Estructura y función de la célula animal.">Biología Celular</div>
-      <div class="subject" id="quimica" title="Conceptos fundamentales de química general y orgánica.">Química</div>
+      <div class="ramo" id="ingles2" data-prereq="ingles1">Inglés II</div>
+      <div class="ramo" id="zoologia" data-prereq="histoembriologia">Zoología</div>
+      <div class="ramo" id="practica_basica" data-prereq="anatomia_canino,intro_med_vet">Práctica Básica</div>
+      <div class="ramo" id="anatomia_comparada" data-prereq="anatomia_canino">Anatomía Comparada</div>
+      <div class="ramo" id="biologia_celular">Biología Celular</div>
+      <div class="ramo" id="quimica">Química</div>
     </div>
 
-    <!-- SEMESTRE 4 -->
-    <div class="subject-container">
+    <!-- Semestre 4 -->
+    <div class="semestre">
       <h2>Semestre 4</h2>
-      <div class="subject" id="microbiologia" data-prereq="biologia_celular" title="Microorganismos relevantes en medicina veterinaria.">Microbiología General y Veterinaria</div>
-      <div class="subject" id="genetica" data-prereq="bioestadistica" title="Principios genéticos aplicados a animales.">Genética</div>
-      <div class="subject" id="administracion" title="Gestión y emprendimiento en el ámbito veterinario.">Administración y Emprendimiento Veterinario</div>
-      <div class="subject" id="parasitarias" data-prereq="zoologia" title="Enfermedades causadas por parásitos animales.">Enfermedades Parasitarias</div>
-      <div class="subject" id="bioquimica" data-prereq="quimica" title="Procesos químicos en organismos animales.">Bioquímica</div>
+      <div class="ramo" id="microbiologia" data-prereq="biologia_celular">Microbiología General y Veterinaria</div>
+      <div class="ramo" id="genetica" data-prereq="bioestadistica">Genética</div>
+      <div class="ramo" id="admin_vet">Administración y Emprendimiento Veterinario</div>
+      <div class="ramo" id="enf_parasitarias" data-prereq="zoologia">Enfermedades Parasitarias</div>
+      <div class="ramo" id="bioquimica" data-prereq="quimica">Bioquímica</div>
     </div>
 
-    <!-- SEMESTRE 5 -->
-    <div class="subject-container">
+    <!-- Semestre 5 -->
+    <div class="semestre">
       <h2>Semestre 5</h2>
-      <div class="subject" id="inmunologia" data-prereq="microbiologia" title="Sistema inmune y mecanismos de defensa animal.">Inmunología</div>
-      <div class="subject" id="medioambiente" data-prereq="bioquimica" title="Impacto ambiental y sostenibilidad en medicina veterinaria.">Medio Ambiente y Gestión Ambiental</div>
-      <div class="subject" id="tecnologia_alimentos" data-prereq="microbiologia" title="Procesamiento y conservación de alimentos de origen animal.">Tecnología de los Alimentos</div>
-      <div class="subject" id="nutricion" data-prereq="bioquimica" title="Principios de alimentación y formulación de dietas.">Nutrición y Alimentación Animal</div>
-      <div class="subject" id="etologia" data-prereq="zoologia" title="Comportamiento animal y bienestar.">Etología y Bienestar Animal</div>
+      <div class="ramo" id="inmunologia" data-prereq="microbiologia">Inmunología</div>
+      <div class="ramo" id="medio_ambiente" data-prereq="bioquimica">Medio Ambiente y Gestión Ambiental</div>
+      <div class="ramo" id="tec_alimentos" data-prereq="microbiologia">Tecnología de los Alimentos</div>
+      <div class="ramo" id="nutricion" data-prereq="bioquimica">Nutrición y Alimentación Animal</div>
+      <div class="ramo" id="etologia" data-prereq="zoologia">Etología y Bienestar Animal</div>
     </div>
 
-    <!-- SEMESTRE 6 -->
-    <div class="subject-container">
+    <!-- Semestre 6 -->
+    <div class="semestre">
       <h2>Semestre 6</h2>
-      <div class="subject" id="fisiologia" data-prereq="anatomia_canino bioquimica" title="Funciones corporales normales en animales.">Fisiología Animal</div>
-      <div class="subject" id="avicola" data-prereq="nutricion etologia" title="Producción y sanidad avícola.">Producción Avícola</div>
-      <div class="subject" id="infecciosas" data-prereq="inmunologia" title="Enfermedades infecciosas comunes en animales.">Enfermedades Infecciosas</div>
-      <div class="subject" id="control_calidad" data-prereq="parasitarias tecnologia_alimentos" title="Normativas y evaluación de calidad alimentaria.">Control de Calidad de Alimentos</div>
+      <div class="ramo" id="fisiologia_animal" data-prereq="anatomia_canino,bioquimica">Fisiología Animal</div>
+      <div class="ramo" id="prod_avicola" data-prereq="nutricion,etologia">Producción Avícola</div>
+      <div class="ramo" id="enf_infecciosas" data-prereq="inmunologia">Enfermedades Infecciosas</div>
+      <div class="ramo" id="control_alimentos" data-prereq="enf_parasitarias,tec_alimentos">Control de Calidad de Alimentos</div>
     </div>
 
-    <!-- SEMESTRE 7 -->
-    <div class="subject-container">
+    <!-- Semestre 7 -->
+    <div class="semestre">
       <h2>Semestre 7</h2>
-      <div class="subject" id="epidemiologia" data-prereq="infecciosas" title="Distribución y prevención de enfermedades.">Epidemiología Veterinaria</div>
-      <div class="subject" id="ovina_caprina" data-prereq="genetica" title="Producción en ovinos y caprinos.">Producción Ovina y Caprina</div>
-      <div class="subject" id="reproduccion" data-prereq="fisiologia" title="Reproducción asistida en animales.">Reproducción e Inseminación Artificial</div>
-      <div class="subject" id="fisiopatologia" data-prereq="fisiologia zoologia" title="Alteraciones de funciones fisiológicas normales.">Fisiopatología</div>
+      <div class="ramo" id="epidemiologia" data-prereq="enf_infecciosas">Epidemiología Veterinaria</div>
+      <div class="ramo" id="prod_ovina" data-prereq="genetica">Producción Ovina y Caprina</div>
+      <div class="ramo" id="reproduccion" data-prereq="fisiologia_animal">Reproducción e Inseminación Artificial</div>
+      <div class="ramo" id="fisiopatologia" data-prereq="fisiologia_animal,zoologia">Fisiopatología</div>
     </div>
 
-    <!-- SEMESTRE 8 -->
-    <div class="subject-container">
+    <!-- Semestre 8 -->
+    <div class="semestre">
       <h2>Semestre 8</h2>
-      <div class="subject" id="patologia_sistemas" data-prereq="fisiopatologia" title="Lesiones y enfermedades de órganos y sistemas.">Patología de los Sistemas</div>
-      <div class="subject" id="farmacologia" data-prereq="fisiologia" title="Medicamentos y toxicología veterinaria.">Farmacología y Toxicología</div>
-      <div class="subject" id="ginecologia" data-prereq="reproduccion" title="Salud reproductiva en animales.">Ginecología y Obstetricia</div>
+      <div class="ramo" id="patologia_sistemas" data-prereq="fisiopatologia">Patología de los Sistemas</div>
+      <div class="ramo" id="farmacologia" data-prereq="fisiologia_animal">Farmacología y Toxicología</div>
+      <div class="ramo" id="ginecologia" data-prereq="reproduccion">Ginecología y Obstetricia</div>
     </div>
 
-    <!-- SEMESTRE 9 -->
-    <div class="subject-container">
+    <!-- Semestre 9 -->
+    <div class="semestre">
       <h2>Semestre 9</h2>
-      <div class="subject" id="investigacion" data-prereq="epidemiologia" title="Metodologías para trabajos científicos.">Metodología de la Investigación</div>
-      <div class="subject" id="acuicola" data-prereq="nutricion" title="Sistemas de cultivo de organismos acuáticos.">Producción Acuícola</div>
-      <div class="subject" id="practica_intermedia" data-prereq="farmacologia infecciosas" title="Aplicación práctica de conocimientos clínicos.">Práctica Intermedia</div>
-      <div class="subject" id="porcina" data-prereq="reproduccion medioambiente" title="Manejo productivo de cerdos.">Producción Porcina</div>
-      <div class="subject" id="semiologia" data-prereq="farmacologia fisiopatologia anatomia_comparada" title="Exploración clínica y diagnóstico inicial.">Semiología</div>
-      <div class="subject" id="lab_clinico" data-prereq="patologia_sistemas" title="Técnicas y análisis de laboratorio clínico.">Laboratorio Clínico</div>
+      <div class="ramo" id="investigacion" data-prereq="epidemiologia">Metodología de la Investigación</div>
+      <div class="ramo" id="prod_acuicola" data-prereq="nutricion">Producción Acuícola</div>
+      <div class="ramo" id="practica_intermedia" data-prereq="farmacologia,enf_infecciosas">Práctica Intermedia</div>
+      <div class="ramo" id="prod_porcina" data-prereq="reproduccion,medio_ambiente">Producción Porcina</div>
+      <div class="ramo" id="semiologia" data-prereq="farmacologia,fisiopatologia,anatomia_comparada">Semiología</div>
+      <div class="ramo" id="lab_clinico" data-prereq="patologia_sistemas">Laboratorio Clínico</div>
     </div>
 
-    <!-- SEMESTRE 10 -->
-    <div class="subject-container">
+    <!-- Semestre 10 -->
+    <div class="semestre">
       <h2>Semestre 10</h2>
-      <div class="subject" id="salud_publica" data-prereq="control_calidad epidemiologia" title="Relación entre salud animal y humana.">Salud Pública</div>
-      <div class="subject" id="titulacion" data-prereq="investigacion" title="Proyecto final de la carrera.">Trabajo de Titulación</div>
-      <div class="subject" id="exoticos" data-prereq="semiologia lab_clinico" title="Atención de animales no convencionales.">Medicina Animales Exóticos</div>
-      <div class="subject" id="mayores" data-prereq="semiologia lab_clinico" title="Diagnóstico y tratamiento de animales grandes.">Medicina Animales Mayores</div>
-      <div class="subject" id="felinos" data-prereq="semiologia lab_clinico" title="Manejo clínico de gatos.">Medicina de Felinos</div>
-      <div class="subject" id="caninos" data-prereq="semiologia lab_clinico" title="Manejo clínico de perros.">Medicina de Caninos</div>
-      <div class="subject" id="cirugia" data-prereq="semiologia" title="Procedimientos quirúrgicos veterinarios.">Cirugía General</div>
-      <div class="subject" id="formulario" data-prereq="administracion" title="Evaluación de proyectos veterinarios.">Formulario y Evaluación de Proyectos</div>
+      <div class="ramo" id="salud_publica" data-prereq="control_alimentos,epidemiologia">Salud Pública</div>
+      <div class="ramo" id="titulo" data-prereq="investigacion">Trabajo de Titulación</div>
+      <div class="ramo" id="med_exoticos" data-prereq="semiologia,lab_clinico">Medicina Animales Exóticos</div>
+      <div class="ramo" id="med_mayores" data-prereq="semiologia,lab_clinico">Medicina Animales Mayores</div>
+      <div class="ramo" id="med_felinos" data-prereq="semiologia,lab_clinico">Medicina de Felinos</div>
+      <div class="ramo" id="med_caninos" data-prereq="semiologia,lab_clinico">Medicina de Caninos</div>
+      <div class="ramo" id="cirugia_general" data-prereq="semiologia">Cirugía General</div>
+      <div class="ramo" id="eval_proyectos" data-prereq="admin_vet">Formulario y Evaluación de Proyectos</div>
     </div>
 
-    <!-- SEMESTRE 11 -->
-    <div class="subject-container">
+    <!-- Semestre 11 -->
+    <div class="semestre">
       <h2>Semestre 11</h2>
-      <div class="subject" id="imagen" data-prereq="patologia_sistemas" title="Uso de rayos X y ecografía en diagnóstico.">Diagnóstico por Imagen</div>
-      <div class="subject" id="practica_final" data-prereq="practica_intermedia" title="Práctica profesional final en terreno.">Práctica Final</div>
-      <div class="subject" id="patologia_quirurgica" data-prereq="cirugia" title="Enfermedades quirúrgicas y tratamiento.">Patología Quirúrgica</div>
-      <div class="subject" id="bovina" data-prereq="ginecologia" title="Producción ganadera de carne y leche.">Producción Bovina de Leche y Carne</div>
+      <div class="ramo" id="imagen" data-prereq="patologia_sistemas">Diagnóstico por Imagen</div>
+      <div class="ramo" id="practica_final" data-prereq="practica_intermedia">Práctica Final</div>
+      <div class="ramo" id="pat_quirurgica" data-prereq="cirugia_general">Patología Quirúrgica</div>
+      <div class="ramo" id="prod_bovina" data-prereq="ginecologia">Producción Bovina de Leche y Carne</div>
     </div>
 
-    <!-- SEMESTRE 12 -->
-    <div class="subject-container">
+    <!-- Semestre 12 -->
+    <div class="semestre">
       <h2>Semestre 12</h2>
-      <div class="subject" id="clinica_mayores" data-prereq="mayores imagen" title="Atención clínica de rumiantes y equinos.">Clínica Animales Mayores</div>
-      <div class="subject" id="clinica_menores" data-prereq="imagen caninos" title="Atención clínica de mascotas menores.">Clínica Animales Menores</div>
-      <div class="subject" id="farmacologia_aplicada" data-prereq="mayores caninos" title="Uso práctico de fármacos en clínica.">Farmacología Aplicada</div>
+      <div class="ramo" id="clinica_mayores" data-prereq="med_mayores,imagen">Clínica Animales Mayores</div>
+      <div class="ramo" id="clinica_menores" data-prereq="imagen,med_caninos">Clínica Animales Menores</div>
+      <div class="ramo" id="farmaco_aplicada" data-prereq="med_mayores,med_caninos">Farmacología Aplicada</div>
     </div>
-
   </div>
 
   <script src="script.js"></script>
