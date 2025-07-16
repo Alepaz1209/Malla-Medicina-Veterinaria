@@ -1,13 +1,13 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #fff0f5;
+  background-color: #e6f2ff; /* fondo celeste claro */
   margin: 0;
   padding: 20px;
 }
 
 h1 {
   text-align: center;
-  color: #b30059;
+  color: #004d80;
   margin-bottom: 30px;
 }
 
@@ -20,44 +20,27 @@ h1 {
 
 .semestre {
   min-width: 250px;
-  background-color: #ffe6f0;
-  border: 2px solid #ff99cc;
+  background-color: #f0f8ff;
+  border: 2px solid #66a3cc;
   border-radius: 10px;
   padding: 10px;
 }
 
 .semestre h2 {
   text-align: center;
-  color: #99004d;
+  color: #003d66;
   font-size: 18px;
   margin-bottom: 10px;
 }
 
 .ramo {
-  background-color: #ffcce6; /* rosa claro (desbloqueado) */
+  background-color: #cceeff; /* celeste claro para desbloqueado */
   margin: 6px 0;
   padding: 10px;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
-  border: 1px solid #ff99cc;
+  border: 1px solid #66a3cc;
 }
 
-.ramo:hover {
-  opacity: 0.9;
-}
-
-/* ✅ Aprobado */
-.ramo.aprobado {
-  background-color: #cc0066; /* rosa oscuro */
-  color: white;
-  text-decoration: line-through;
-}
-
-/* 🔒 Bloqueado */
-.ramo.bloqueado {
-  background-color: #d9d9d9; /* gris */
-  color: #666;
-  text-decoration: line-through;
-  cursor: not-allowed;
-}
+.
