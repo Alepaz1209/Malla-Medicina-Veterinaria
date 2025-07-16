@@ -1,31 +1,40 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const subjects = document.querySelectorAll(".subject");
+  const ramos = document.querySelectorAll(".ramo");
 
-  function updateSubjectStates() {
-    subjects.forEach((subject) => {
-      const prereqIds = subject.dataset.prereq?.split(" ") || [];
-      const isUnlocked = prereqIds.every(id =>
-        document.getElementById(id)?.classList.contains("approved")
-      );
+  const estadoRamos = {};
 
-      if (prereqIds.length === 0 || isUnlocked) {
-        subject.classList.remove("locked");
-        subject.classList.add("unlocked");
-      } else {
-        subject.classList.remove("unlocked", "approved");
-        subject.classList.add("locked");
-      }
-    });
-  }
+  ramos.forEach(ramo => {
+    const prereqs = ramo.dataset.prereq ? ramo.dataset.prereq.split(",") : [];
+    const id = ramo.id;
+    estadoRamos[id] = { aprobado: false, prereqs, elemento: ramo };
 
-  subjects.forEach((subject) => {
-    subject.addEventListener("click", () => {
-      if (!subject.classList.contains("locked")) {
-        subject.classList.toggle("approved");
-        updateSubjectStates();
+    ramo.addEventListener("click", () => {
+      if (!ramo.classList.contains("bloqueado")) {
+        ramo.classList.toggle("aprobado");
+        estadoRamos[id].aprobado = ramo.classList.contains("aprobado");
+        actualizarDisponibilidad();
       }
     });
   });
 
-  updateSubjectStates(); // inicial
+  function actualizarDisponibilidad() {
+    Object.entries(estadoRamos).forEach(([id, info]) => {
+      const { prereqs, aprobado, elemento } = info;
+
+      if (aprobado) {
+        elemento.classList.remove("bloqueado");
+        return;
+      }
+
+      const faltan = prereqs.some(pr => !estadoRamos[pr]?.aprobado);
+
+      if (faltan) {
+        elemento.classList.add("bloqueado");
+      } else {
+        elemento.classList.remove("bloqueado");
+      }
+    });
+  }
+
+  actualizarDisponibilidad();
 });
